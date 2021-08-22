@@ -20,6 +20,7 @@ spec:
       containers:
       - name: gke-k8s-test
         image: gcr.io/PROJECT_ID/IMAGE:TAG
+        imagePullPolicy: Always
         ports:
         - containerPort: 5001
         resources:

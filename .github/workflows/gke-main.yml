@@ -61,6 +61,10 @@ jobs:
         ./kustomize edit set image gcr.io/PROJECT_ID/IMAGE:TAG=gcr.io/$PROJECT_ID/$IMAGE:latest
         ./kustomize build . | kubectl apply -f -
 
+    - name: Restart pod
+      run: |-
+        kubectl rollout restart deployment/$DEPLOYMENT_NAME
+
     - name: Check status
       run: |-
         kubectl rollout status deployment/$DEPLOYMENT_NAME
