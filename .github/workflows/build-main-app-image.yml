@@ -1,0 +1,22 @@
+name: Build main-application image
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:            
+  docker-magic:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Github Package Registry login
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and push image
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: ghcr.io/nfox-ai/cc-devops-challenge-task:latest
