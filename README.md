@@ -1,4 +1,4 @@
-# CC DevOps Challenge Challenge
+# CC DevOps Challenge
 
 Objectives:
 1. Build & run the app in Docker
